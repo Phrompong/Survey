@@ -1,0 +1,6 @@
+.contentStyle {
+    display: flex;
+    justify-content:center;
+    padding: 3%;
+    flex-wrap: wrap;
+}
