@@ -1,9 +1,12 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import "./content.css";
+import Popup from "../popups/createSurvey";
 
 const Content = () => {
+  const [createPopup, setCreatePopup] = useState(false);
+
   const data = [
     {
       image:
@@ -74,9 +77,10 @@ const Content = () => {
   return (
     <div style={{ display: "flex", flexDirection: "column", padding: "3%" }}>
       <div className="contentButtonCreate">
-        <Button variant="outline-primary">+ สร้างแบบสำรวจ</Button>{" "}
+        <Button variant="outline-primary">+ สร้างแบบสำรวจ</Button>
       </div>
       <div className="contentStyle">{contents}</div>
+      <Popup isOpen={true}></Popup>
     </div>
   );
 };
