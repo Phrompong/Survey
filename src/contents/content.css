@@ -1,6 +1,23 @@
+.contentHeaderLeft {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.contentHeaderRight {
+    display: flex;
+    justify-content: flex-end;
+}
+
 .contentStyle {
     display: flex;
     justify-content:center;
     padding: 3%;
     flex-wrap: wrap;
+}
+
+.contentButtonCreate { 
+    display: flex;
+    justify-content:flex-end;
+    flex-wrap: wrap;
+    padding-right: 10%;
 }
