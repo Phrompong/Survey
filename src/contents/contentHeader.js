@@ -1,3 +1,6 @@
+import Form from "react-bootstrap/Form";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
+
 const ContentHeader = () => {
   return (
     <div
@@ -5,26 +8,20 @@ const ContentHeader = () => {
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
-        marginTop: "2%",
-        marginLeft: "5%",
-        marginRight: "5%",
+        paddingTop: "2%",
+        paddingLeft: "5%",
+        paddingRight: "5%",
+        paddingBottom: "2%",
         top: 0,
+        backgroundColor: "#D9E0E8",
       }}
     >
-      <div className="contentHeaderLeft">
-        <img
-          style={{ borderRadius: "50%", width: "10%" }}
-          src="https://logos-world.net/wp-content/uploads/2020/12/Lays-Logo.png"
-          alt="Avatar"
-        ></img>
-      </div>
+      <div className="contentHeaderLeft">Logo</div>
+
       <div className="contentHeaderRight">
-        <img
-          style={{ borderRadius: "50%", width: "10%" }}
-          src="https://logos-world.net/wp-content/uploads/2020/12/Lays-Logo.png"
-          alt="Avatar"
-        ></img>
-        {/* <h6>Login</h6> */}
+        <button type="button" class="btn btn-outline-info btn-sm">
+          Login
+        </button>
       </div>
     </div>
   );

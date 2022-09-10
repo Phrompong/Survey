@@ -1,5 +1,5 @@
 const ContentFooter = () => {
-  return <div>Footer</div>;
+  return <div>Version 0.0.1</div>;
 };
 
 export default ContentFooter;

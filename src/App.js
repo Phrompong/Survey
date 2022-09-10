@@ -8,19 +8,20 @@ import ContentFooter from "./contents/contentFooter";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundColor: "#F3EBE1" }}>
       <ContentHeader></ContentHeader>
       <div
         style={{
           display: "flex",
           justifyContent: "center",
-          borderStyle: "solid",
           marginTop: "2%",
           marginLeft: "5%",
           marginRight: "5%",
         }}
       >
-        <Content></Content>
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">
+          <Content></Content>
+        </div>
       </div>
       <ContentFooter></ContentFooter>
     </div>

@@ -15,9 +15,17 @@
     flex-wrap: wrap;
 }
 
+.contentSearch {
+    display: flex;
+    justify-content:flex-start;
+    flex-wrap: wrap;
+    padding-right: 10%;
+}
+
 .contentButtonCreate { 
     display: flex;
     justify-content:flex-end;
     flex-wrap: wrap;
+    padding-left: 10%;
     padding-right: 10%;
 }
