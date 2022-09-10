@@ -2,11 +2,16 @@ import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import "./content.css";
-import Popup from "../popups/createSurvey";
+import PopupCreateSurvey from "../popups/createSurvey";
+import PopupDisplayResult from "../popups/displayResult";
 
 const Content = () => {
-  const [isShow, setIsShow] = useState(false);
+  const [isShowPopupCreateSurvey, setIsShowPopupCreateSurvey] = useState(false);
   const [detail, setDetail] = useState(null);
+
+  const [isShowPopupDisplayResult, setIsShowPopupDisplayResult] =
+    useState(false);
+  const [detailPopupDisplayResult, setPopupDisplayResult] = useState(null);
 
   const data = [
     {
@@ -61,9 +66,14 @@ const Content = () => {
 
   const contents = [];
 
-  const handleOpenPopup = (detail) => {
-    setIsShow(true);
+  const handleOpenPopupCreateSurvey = (detail) => {
+    setIsShowPopupCreateSurvey(true);
     setDetail(detail);
+  };
+
+  const handleOpenPopupShowResult = (detail) => {
+    setIsShowPopupDisplayResult(true);
+    setPopupDisplayResult(detail);
   };
 
   for (const obj of data) {
@@ -72,7 +82,7 @@ const Content = () => {
     contents.push(
       <Card
         style={{ margin: "3%", width: "15rem", height: "15rem" }}
-        onClick={() => handleOpenPopup({ title })}
+        onClick={() => handleOpenPopupShowResult({ title })}
       >
         <Card.Img variant="top" src={image} />
         <Card.Body>
@@ -88,20 +98,30 @@ const Content = () => {
       <div className="contentButtonCreate">
         <Button
           variant="outline-primary"
-          onClick={() => handleOpenPopup({ title: "สร้างแบบสำรวจ" })}
+          onClick={() =>
+            handleOpenPopupCreateSurvey({ title: "สร้างแบบสำรวจ" })
+          }
         >
           + สร้างแบบสำรวจ
         </Button>
       </div>
       <div className="contentStyle">{contents}</div>
-
-      <Popup
-        open={isShow}
+      {/* Popup display result survey */}
+      <PopupDisplayResult
+        open={isShowPopupDisplayResult}
+        detail={detailPopupDisplayResult}
         close={() => {
-          setIsShow(false);
+          setIsShowPopupDisplayResult(false);
+        }}
+      ></PopupDisplayResult>
+      {/* Popup create survey */}
+      <PopupCreateSurvey
+        open={isShowPopupCreateSurvey}
+        close={() => {
+          setIsShowPopupCreateSurvey(false);
         }}
         detail={detail}
-      ></Popup>
+      ></PopupCreateSurvey>
     </div>
   );
 };
