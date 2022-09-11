@@ -4,6 +4,7 @@ import Content from "../src/contents/content";
 import ContentHeader from "./contents/contentHeader";
 import ContentFooter from "./contents/contentFooter";
 import Banner from "./contents/banner";
+import Rank from "./contents/rank";
 
 function App() {
   return (
@@ -12,9 +13,7 @@ function App() {
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
           flexDirection: "column",
-          flexWrap: "wrap",
           marginTop: "2%",
           marginLeft: "5%",
           marginRight: "5%",
@@ -35,6 +34,10 @@ function App() {
           <div class="shadow-lg p-3 mb-5 bg-white rounded">2</div>
           <div class="shadow-lg p-3 mb-5 bg-white rounded">3</div>
           <div class="shadow-lg p-3 mb-5 bg-white rounded">4</div>
+        </div>
+        <h4 style={{ textAlign: "left" }}>10 อันดับตำแหน่งงานยอดฮิต</h4>
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">
+          <Rank></Rank>
         </div>
       </div>
       <ContentFooter></ContentFooter>
