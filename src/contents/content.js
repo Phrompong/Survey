@@ -13,56 +13,16 @@ const Content = () => {
     useState(false);
   const [detailPopupDisplayResult, setPopupDisplayResult] = useState(null);
 
-  const data = [
-    {
+  const data = [];
+
+  for (let index = 0; index < 1000; index++) {
+    data.push({
       image:
         "https://media.istockphoto.com/photos/wild-grass-in-the-mountains-at-sunset-picture-id1322277517?b=1&k=20&m=1322277517&s=170667a&w=0&h=BSN_5NMGYJY2qPwI3_vOcEXVSX_hmGBOmXebMBxTLX0=",
-      title: "title1",
+      title: index,
       detail: "detail",
-    },
-    {
-      image:
-        "https://media.istockphoto.com/photos/wild-grass-in-the-mountains-at-sunset-picture-id1322277517?b=1&k=20&m=1322277517&s=170667a&w=0&h=BSN_5NMGYJY2qPwI3_vOcEXVSX_hmGBOmXebMBxTLX0=",
-      title: "title2",
-      detail: "detail",
-    },
-    {
-      image:
-        "https://media.istockphoto.com/photos/wild-grass-in-the-mountains-at-sunset-picture-id1322277517?b=1&k=20&m=1322277517&s=170667a&w=0&h=BSN_5NMGYJY2qPwI3_vOcEXVSX_hmGBOmXebMBxTLX0=",
-      title: "title",
-      detail: "detail",
-    },
-    {
-      image:
-        "https://media.istockphoto.com/photos/wild-grass-in-the-mountains-at-sunset-picture-id1322277517?b=1&k=20&m=1322277517&s=170667a&w=0&h=BSN_5NMGYJY2qPwI3_vOcEXVSX_hmGBOmXebMBxTLX0=",
-      title: "title",
-      detail: "detail",
-    },
-    {
-      image:
-        "https://media.istockphoto.com/photos/wild-grass-in-the-mountains-at-sunset-picture-id1322277517?b=1&k=20&m=1322277517&s=170667a&w=0&h=BSN_5NMGYJY2qPwI3_vOcEXVSX_hmGBOmXebMBxTLX0=",
-      title: "title",
-      detail: "detail",
-    },
-    {
-      image:
-        "https://media.istockphoto.com/photos/wild-grass-in-the-mountains-at-sunset-picture-id1322277517?b=1&k=20&m=1322277517&s=170667a&w=0&h=BSN_5NMGYJY2qPwI3_vOcEXVSX_hmGBOmXebMBxTLX0=",
-      title: "title",
-      detail: "detail",
-    },
-    {
-      image:
-        "https://media.istockphoto.com/photos/wild-grass-in-the-mountains-at-sunset-picture-id1322277517?b=1&k=20&m=1322277517&s=170667a&w=0&h=BSN_5NMGYJY2qPwI3_vOcEXVSX_hmGBOmXebMBxTLX0=",
-      title: "title",
-      detail: "detail",
-    },
-    {
-      image:
-        "https://media.istockphoto.com/photos/wild-grass-in-the-mountains-at-sunset-picture-id1322277517?b=1&k=20&m=1322277517&s=170667a&w=0&h=BSN_5NMGYJY2qPwI3_vOcEXVSX_hmGBOmXebMBxTLX0=",
-      title: "title",
-      detail: "detail",
-    },
-  ];
+    });
+  }
 
   const contents = [];
 
@@ -81,7 +41,7 @@ const Content = () => {
 
     contents.push(
       <Card
-        style={{ margin: "3%", width: "15rem", height: "15rem" }}
+        style={{ margin: "3%" }}
         onClick={() => handleOpenPopupShowResult({ title })}
       >
         <Card.Img variant="top" src={image} />
@@ -94,7 +54,7 @@ const Content = () => {
   }
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", padding: "3%" }}>
+    <>
       <div className="contentButtonCreate">
         <Button
           variant="outline-primary"
@@ -105,7 +65,16 @@ const Content = () => {
           + สร้างแบบสำรวจ
         </Button>
       </div>
-      <div className="contentStyle">{contents}</div>
+      <div
+        style={{
+          margin: "3%",
+          padding: "3%",
+          height: "500px",
+          overflow: "auto",
+        }}
+      >
+        <div className="contentStyle">{contents}</div>
+      </div>
       {/* Popup display result survey */}
       <PopupDisplayResult
         open={isShowPopupDisplayResult}
@@ -122,7 +91,7 @@ const Content = () => {
         }}
         detail={detail}
       ></PopupCreateSurvey>
-    </div>
+    </>
   );
 };
 
