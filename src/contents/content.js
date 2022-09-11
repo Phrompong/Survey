@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import "./content.css";
@@ -12,10 +12,13 @@ const Content = () => {
   const [isShowPopupDisplayResult, setIsShowPopupDisplayResult] =
     useState(false);
   const [detailPopupDisplayResult, setPopupDisplayResult] = useState(null);
+  const [isloadMore, setIsLoadMore] = useState(false);
 
   const data = [];
 
-  for (let index = 0; index < 1000; index++) {
+  useEffect(() => {}, [isloadMore]);
+
+  for (let index = 0; index < 70; index++) {
     data.push({
       image:
         "https://media.istockphoto.com/photos/wild-grass-in-the-mountains-at-sunset-picture-id1322277517?b=1&k=20&m=1322277517&s=170667a&w=0&h=BSN_5NMGYJY2qPwI3_vOcEXVSX_hmGBOmXebMBxTLX0=",
@@ -53,6 +56,21 @@ const Content = () => {
     );
   }
 
+  function handleScroll(e) {
+    const scrollHeight = e.currentTarget.scrollHeight;
+    const scrollTop = e.currentTarget.scrollTop;
+    const offsetHeight = e.currentTarget.offsetHeight;
+
+    const result = Math.ceil(scrollHeight - scrollTop);
+    console.log(result);
+    if (result === offsetHeight) {
+      setIsLoadMore(true);
+      console.log("load more");
+    } else {
+      setIsLoadMore(false);
+    }
+  }
+
   return (
     <>
       <div className="contentButtonCreate">
@@ -65,6 +83,7 @@ const Content = () => {
           + สร้างแบบสำรวจ
         </Button>
       </div>
+      {isloadMore.toString()}
       <div
         style={{
           margin: "3%",
@@ -72,8 +91,11 @@ const Content = () => {
           height: "500px",
           overflow: "auto",
         }}
+        onScroll={handleScroll}
       >
         <div className="contentStyle">{contents}</div>
+
+        {isloadMore ? "Loadmore...." : ""}
       </div>
       {/* Popup display result survey */}
       <PopupDisplayResult
