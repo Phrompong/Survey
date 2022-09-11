@@ -23,7 +23,13 @@ function App() {
       >
         <Banner></Banner>
 
-        <div className="Container">
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "70% auto",
+            gridGap: "1%",
+          }}
+        >
           <div
             style={{ gridRow: "1 / span 4" }}
             class="shadow-lg p-3 mb-5 bg-white rounded"
