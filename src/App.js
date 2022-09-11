@@ -1,12 +1,9 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Card from "react-bootstrap/Card";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Content from "../src/contents/content";
 import ContentHeader from "./contents/contentHeader";
 import ContentFooter from "./contents/contentFooter";
 import Banner from "./contents/banner";
-import { Filler } from "chart.js";
 
 function App() {
   return (
@@ -26,13 +23,7 @@ function App() {
       >
         <Banner></Banner>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "70% auto",
-            gridGap: "2%",
-          }}
-        >
+        <div className="Container">
           <div
             style={{ gridRow: "1 / span 4" }}
             class="shadow-lg p-3 mb-5 bg-white rounded"
